@@ -1,4 +1,4 @@
-'use strict';
+const validator = () => {
 
 class Validator {
     constructor({
@@ -128,3 +128,74 @@ class Validator {
         }
     }
 }
+
+const valid1 = new Validator({
+    selector: '#form1', 
+    pattern: {
+      name: /^[А-Яа-яЁё\s]+$/,
+      phone: /^\+?[78]\d{10}$/
+    },
+    method: {
+        'form1-phone': [
+            ['notEmpty'],
+            ['pattern', 'phone']
+    ],
+        'form1-email': [
+            ['notEmpty'],
+            ['pattern', 'email']
+    ],
+        'form1-name':[
+            ['notEmpty'],
+            ['pattern', 'name']
+        ]
+    }
+  });
+
+  const valid2 = new Validator({
+    selector: '#form2', 
+    pattern: {
+      name: /^[А-Яа-яЁё\s]+$/,
+      phone: /^\+?[78]\d{10}$/
+    },
+    method: {
+        'form2-phone': [
+            ['notEmpty'],
+            ['pattern', 'phone']
+        ],
+        'form2-email': [
+            ['notEmpty'],
+            ['pattern', 'email']
+        ],
+        'form2-name':[
+            ['notEmpty'],
+            ['pattern', 'name']
+        ]
+    }
+  });
+
+  const valid3 = new Validator({
+    selector: '#form3', 
+    pattern: {
+      name: /^[А-Яа-яЁё\s]+$/,
+      phone: /^\+?[78]\d{10}$/
+    },
+    method: {
+        'form3-phone': [
+            ['notEmpty'],
+            ['pattern', 'phone']
+    ],
+        'form3-email': [
+            ['notEmpty'],
+            ['pattern', 'email']
+    ],
+        'form3-name':[
+            ['notEmpty'],
+            ['pattern', 'name']
+        ]
+    }
+  });
+
+  valid1.init();
+  valid2.init();
+  valid3.init();
+};

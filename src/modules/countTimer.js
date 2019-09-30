@@ -9,7 +9,7 @@ let countTimer = (deadline) => {
                 timeRemaining = Math.floor((dateStop - dateNow) / 1000),
                 seconds = Math.floor(timeRemaining % 60),
                 minutes = Math.floor((timeRemaining / 60) % 60),
-                houres = Math.floor((timeRemaining / 60) / 60);
+                houres = Math.floor((timeRemaining / 60) / 60 % 24);
             return {
                 timeRemaining,
                 houres,
